@@ -17,11 +17,6 @@ namespace serial {
 
     //%
     StringData *read(StringData *delimiters) {
-    	const char *jsonNN = PXT_STRING_DATA(json);
-    	uBit.serial.send("read: ");
-    	uBit.serial.send(jsonNN);
-    	uBit.serial.send("\r\n");
-    	ManagedString result = ManagedString("Ergebnis");
-        return result.leakData();
+        return delimiters;
     }
 }
