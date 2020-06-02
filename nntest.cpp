@@ -3,23 +3,25 @@
 namespace serial {
     //%
     void setReceiveBufferSize(int size) {
-        // make sure we only allocate 255 bytes or the device will freeze
-        uBit.serial.setRxBufferSize(size < 255 ? size : 254);
-    }
-
-    //%
-    bool busy() {
-        return uBit.serial.txInUse();
+    	uBit.serial.send("size: ");
+    	for (int i=0; i<size; i++) {
+        	uBit.serial.send(".");
+    	}
+    	uBit.serial.send("\r\n");
     }
 
     //%
     void resetSerial() {
-        while(uBit.serial.redirect(USBTX, USBRX) == MICROBIT_SERIAL_IN_USE) fiber_sleep(10);
-        uBit.serial.baud(MICROBIT_SERIAL_DEFAULT_BAUD_RATE);
+    	uBit.serial.send("resetSerial 0.1\r\n");
     }
 
     //%
-    StringData *read(StringData *delimiters, MicroBitSerialMode mode = MicroBitSerialMode::SYNC_SPINWAIT) {
-        return uBit.serial.readUntil(ManagedString(delimiters), mode).leakData();
+    StringData *read(StringData *delimiters) {
+    	const char *jsonNN = PXT_STRING_DATA(json);
+    	uBit.serial.send("read: ");
+    	uBit.serial.send(jsonNN);
+    	uBit.serial.send("\r\n");
+    	ManagedString result = ManagedString("Ergebnis");
+        return result.leakData();
     }
 }

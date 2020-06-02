@@ -1,7 +1,5 @@
 /**
- * Extensions to the serial module.
- *
- * @author Matthias L. Jugel
+ * test cpp interface
  */
 namespace serial {
     /**
@@ -24,13 +22,8 @@ namespace serial {
     }
 
     //% shim=serial::read
-    export function read(delimiters: string, mode: number = 0): string {
+    export function read(delimiters: string): string {
         return "OK";
-    }
-
-    //% shim=serial::busy
-    export function busy(): boolean {
-        return false;
     }
 
 }
