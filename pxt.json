@@ -8,8 +8,6 @@
     },
     "files": [
         "README.md",
-        "shims.d.ts",
-        "enums.d.ts",
         "nntest.cpp",
         "nntest.ts"
     ],
