@@ -2,6 +2,14 @@
 
 
 
-## Supported targets
 
-* for PXT/calliope
+## Meta
+
+- PXT/calliope
+- PXT/microbit
+
+Author: Ferenc Hechler
+
+## License
+
+MIT

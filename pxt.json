@@ -1,16 +1,21 @@
 {
-    "name": "pxt-calli",
-    "description": "",
+    "name": "pxt-callinn",
+    "version": "0.1",
+    "description": "AI Blocks supporting Neuronal Networks",
+    "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "radio": "*"
+        "core": "*"
     },
     "files": [
-        "nntest.ts",
-        "nntest.cpp",
+        "README.md",
         "shims.d.ts",
         "enums.d.ts",
-        "README.md"
+        "nntest.cpp",
+        "nntest.ts"
     ],
-    "preferredEditor": "tsprj"
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ferenc-hechler/pxt-callinn.git"
+    },
+    "public": true    
 }
