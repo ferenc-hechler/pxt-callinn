@@ -3,20 +3,23 @@
 namespace serial {
     //%
     void setReceiveBufferSize(int size) {
-    	uBit.serial.send("size: ");
-    	for (int i=0; i<size; i++) {
-        	uBit.serial.send(".");
-    	}
-    	uBit.serial.send("\r\n");
+        // make sure we only allocate 255 bytes or the device will freeze
+        uBit.serial.setRxBufferSize(size < 255 ? size : 254);
+    }
+
+    //%
+    bool busy() {
+        return uBit.serial.txInUse();
     }
 
     //%
     void resetSerial() {
-    	uBit.serial.send("resetSerial Version: ver0.2\r\n");
+        while(uBit.serial.redirect(USBTX, USBRX) == MICROBIT_SERIAL_IN_USE) fiber_sleep(10);
+        uBit.serial.baud(MICROBIT_SERIAL_DEFAULT_BAUD_RATE);
     }
 
     //%
-    StringData *read(StringData *delimiters) {
-        return delimiters;
+    StringData *read(StringData *delimiters, MicroBitSerialMode mode = MicroBitSerialMode::SYNC_SPINWAIT) {
+        return uBit.serial.readUntil(ManagedString(delimiters), mode).leakData();
     }
 }
