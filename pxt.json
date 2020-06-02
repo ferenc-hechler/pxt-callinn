@@ -1,0 +1,16 @@
+{
+    "name": "pxt-calli",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "files": [
+        "nntest.ts",
+        "nntest.cpp",
+        "shims.d.ts",
+        "enums.d.ts",
+        "README.md"
+    ],
+    "preferredEditor": "tsprj"
+}
