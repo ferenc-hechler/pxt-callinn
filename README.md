@@ -1,5 +1,6 @@
 # pxt-callinn
 
+Version: ver0.1
 test with copy from https://github.com/calliope-mini/pxt-calliope-modem/
 
 

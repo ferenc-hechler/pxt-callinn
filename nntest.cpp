@@ -12,7 +12,7 @@ namespace serial {
 
     //%
     void resetSerial() {
-    	uBit.serial.send("resetSerial 0.1\r\n");
+    	uBit.serial.send("resetSerial Version: ver0.1\r\n");
     }
 
     //%
